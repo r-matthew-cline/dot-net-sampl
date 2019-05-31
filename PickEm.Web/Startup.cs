@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PickEm.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace PickEm.Web
 {
@@ -31,6 +33,8 @@ namespace PickEm.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDbContext<PickEmContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("PickEmContext")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

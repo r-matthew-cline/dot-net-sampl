@@ -179,23 +179,23 @@
     ]
   },
   "packageFolders": {
-    "/home/matthew.cline/.nuget/packages/": {},
+    "/home/matthew_cline/.nuget/packages/": {},
     "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/matthew.cline/repos/dot-net-sample/PickEm.Common/PickEm.Common.csproj",
+      "projectUniqueName": "/home/matthew_cline/repos/dot-net-sample/PickEm.Common/PickEm.Common.csproj",
       "projectName": "PickEm.Common",
-      "projectPath": "/home/matthew.cline/repos/dot-net-sample/PickEm.Common/PickEm.Common.csproj",
-      "packagesPath": "/home/matthew.cline/.nuget/packages/",
-      "outputPath": "/home/matthew.cline/repos/dot-net-sample/PickEm.Common/obj/",
+      "projectPath": "/home/matthew_cline/repos/dot-net-sample/PickEm.Common/PickEm.Common.csproj",
+      "packagesPath": "/home/matthew_cline/.nuget/packages/",
+      "outputPath": "/home/matthew_cline/repos/dot-net-sample/PickEm.Common/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/matthew.cline/.nuget/NuGet/NuGet.Config"
+        "/home/matthew_cline/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"

@@ -1,0 +1,66 @@
+@model PickEm.Models.Team
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Team</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AvgScore)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AvgScore)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AvgOppScore)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AvgOppScore)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AvgOffReb)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AvgOffReb)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AvgDefReb)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AvgDefReb)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AvgStl)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AvgStl)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AvgBlk)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AvgBlk)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Seed)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Seed)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
