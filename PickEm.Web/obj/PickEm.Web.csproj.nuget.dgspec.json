@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/matthew.cline/repos/dot-net-sample/PickEm.Web/PickEm.Web.csproj": {}
+  },
+  "projects": {
+    "/home/matthew.cline/repos/dot-net-sample/PickEm.Web/PickEm.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/matthew.cline/repos/dot-net-sample/PickEm.Web/PickEm.Web.csproj",
+        "projectName": "PickEm.Web",
+        "projectPath": "/home/matthew.cline/repos/dot-net-sample/PickEm.Web/PickEm.Web.csproj",
+        "packagesPath": "/home/matthew.cline/.nuget/packages/",
+        "outputPath": "/home/matthew.cline/repos/dot-net-sample/PickEm.Web/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/matthew.cline/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
