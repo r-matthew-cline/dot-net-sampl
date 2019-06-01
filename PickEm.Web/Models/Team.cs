@@ -3,6 +3,7 @@ namespace PickEm.Models
     public class Team
     {
         public int Id { get; set; }
+        public int TeamId { get; set; }
         public string Name { get; set; }
         public decimal AvgScore { get; set; }
         public decimal AvgOppScore { get; set; }

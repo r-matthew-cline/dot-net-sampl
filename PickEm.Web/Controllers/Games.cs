@@ -45,8 +45,9 @@ namespace PickEm.Web.Controllers
         // GET: Games/Create
         public IActionResult Create()
         {
-            var available_teams = _context.Team.ToList();
-            return View(available_teams);
+            List<Team> all_teams = _context.Team.ToList();
+            ViewData["teams"] = all_teams;
+            return View();
         }
 
         // POST: Games/Create
@@ -54,7 +55,7 @@ namespace PickEm.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,HomeTeam,AwayTeam,HomeScore,AwayScore")] Game game)
+        public async Task<IActionResult> Create([Bind("Id,HomeTeamId,AwayTeamId,HomeScore,AwayScore")] Game game)
         {
             if (ModelState.IsValid)
             {
@@ -73,6 +74,8 @@ namespace PickEm.Web.Controllers
                 return NotFound();
             }
 
+            List<Team> all_teams = _context.Team.ToList();
+            ViewData["teams"] = all_teams;
             var game = await _context.Game.FindAsync(id);
             if (game == null)
             {
@@ -86,7 +89,7 @@ namespace PickEm.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,HomeScore,AwayScore")] Game game)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,HomeTeamId,AwayTeamId,HomeScore,AwayScore")] Game game)
         {
             if (id != game.Id)
             {
