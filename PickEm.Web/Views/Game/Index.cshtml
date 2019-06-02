@@ -1,4 +1,4 @@
-@model PickEm.ViewModels.GameIndexData
+@model IEnumerable<PickEm.Models.GameModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -22,16 +22,16 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Games) {
+@foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.HomeTeam)
+                @Html.DisplayFor(modelItem => item.HomeTeam.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AwayTeam)
+                @Html.DisplayFor(modelItem => item.AwayTeam.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.HomeScore)

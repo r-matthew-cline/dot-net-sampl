@@ -1,32 +1,36 @@
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace PickEm.Models
 {
     public class TeamModel
     {
-        public int Id { get; set; }
+        [Key]
         [Display(Name="Team Id")]
         public int TeamId { get; set; }
         public string Name { get; set; }
 
-        [Display(Name="Score Per Game")]
+        [Display(Name="Points")]
         public decimal AvgScore { get; set; }
 
-        [Display(Name="Opponent Score Per Game")]
+        [Display(Name="Points Allowed")]
         public decimal AvgOppScore { get; set; }
 
-        [Display(Name="Offensive Rebounds Per Game")]
+        [Display(Name="Offensive Rebounds")]
         public decimal AvgOffReb { get; set; }
 
-        [Display(Name="Defensive Rebounds Per Game")]
+        [Display(Name="Defensive Rebounds")]
         public decimal AvgDefReb { get; set; }
 
-        [Display(Name="Steals Per Game")]
+        [Display(Name="Steals")]
         public decimal AvgStl { get; set; }
 
-        [Display(Name="Blocks Per Game")]
+        [Display(Name="Blocks")]
         public decimal AvgBlk { get; set; }
+        [Display(Name="Assists")]
         public int Seed { get; set; }
 
+        public virtual List<GameModel> HomeGames { get; set; }
+        public virtual List<GameModel> AwayGames { get; set; }
     }
 }

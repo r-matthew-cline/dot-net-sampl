@@ -33,7 +33,7 @@ namespace PickEm.Web.Controllers
             }
 
             var teamModel = await _context.TeamModel
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.TeamId == id);
             if (teamModel == null)
             {
                 return NotFound();
@@ -87,7 +87,7 @@ namespace PickEm.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,TeamId,Name,AvgScore,AvgOppScore,AvgOffReb,AvgDefReb,AvgStl,AvgBlk,Seed")] TeamModel teamModel)
         {
-            if (id != teamModel.Id)
+            if (id != teamModel.TeamId)
             {
                 return NotFound();
             }
@@ -101,7 +101,7 @@ namespace PickEm.Web.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TeamModelExists(teamModel.Id))
+                    if (!TeamModelExists(teamModel.TeamId))
                     {
                         return NotFound();
                     }
@@ -124,7 +124,7 @@ namespace PickEm.Web.Controllers
             }
 
             var teamModel = await _context.TeamModel
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.TeamId == id);
             if (teamModel == null)
             {
                 return NotFound();
@@ -146,7 +146,7 @@ namespace PickEm.Web.Controllers
 
         private bool TeamModelExists(int id)
         {
-            return _context.TeamModel.Any(e => e.Id == id);
+            return _context.TeamModel.Any(e => e.TeamId == id);
         }
     }
 }

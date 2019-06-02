@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace PickEm.Models
 {
     public class GameModel
@@ -19,5 +20,8 @@ namespace PickEm.Models
 
         [Display(Name="Home Wins")]
         public bool? Prediction { get; set; }
+
+        public virtual TeamModel HomeTeam { get; set; }
+        public virtual TeamModel AwayTeam { get; set; }
     }
 }

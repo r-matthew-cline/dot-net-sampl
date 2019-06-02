@@ -1,4 +1,4 @@
-@model PickEm.ViewModels.GameIndexData
+@model PickEm.ViewModels.GameCreateViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -19,7 +19,7 @@
                     <option value="">--- select ---</option>
                     @foreach (var team in Model.Teams)
                     {
-                        <option value=@team.Id>@team.Name</option>
+                        <option value=@team.TeamId>@team.Name</option>
                     }
                 </select>
             </div>
@@ -29,7 +29,7 @@
                     <option value="">--- select ---</option>
                     @foreach (var team in Model.Teams)
                     {
-                        <option value=@team.Id>@team.Name</option>
+                        <option value=@team.TeamId>@team.Name</option>
                     }
                 </select>
             </div>

@@ -13,10 +13,21 @@ namespace PickEm.Models
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TeamModel>()
+                .HasMany(t => t.HomeGames)
+                .WithOne(g => g.HomeTeam)
+                .HasForeignKey(g => g.HomeTeamId);
+            
+            modelBuilder.Entity<TeamModel>()
+                .HasMany(t => t.AwayGames)
+                .WithOne(g => g.AwayTeam)
+                .HasForeignKey(g => g.AwayTeamId);
+        }
+
         public DbSet<PickEm.Models.TeamModel> TeamModel { get; set; }
         public DbSet<PickEm.Models.GameModel> GameModel { get; set; }
-
         public DbSet<PickEm.Models.BracketModel> BracketModel { get; set; }
-
     }
 }

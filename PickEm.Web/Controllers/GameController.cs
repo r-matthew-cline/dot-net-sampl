@@ -22,10 +22,13 @@ namespace PickEm.Web.Controllers
         // GET: Game
         public async Task<IActionResult> Index()
         {
-            var viewModel = new GameIndexData();
+            /*
+            var viewModel = new GameIndexViewModel();
             viewModel.Games = _context.GameModel;
             viewModel.Teams = _context.TeamModel;
             return View(viewModel);
+            */
+            return View(await _context.GameModel.Include(g => g.HomeTeam).Include(g => g.AwayTeam).ToListAsync());
         }
 
         // GET: Game/Details/5
@@ -36,7 +39,7 @@ namespace PickEm.Web.Controllers
                 return NotFound();
             }
 
-            var gameModel = await _context.GameModel
+            var gameModel = await _context.GameModel.Include(g => g.HomeTeam).Include(g => g.AwayTeam)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (gameModel == null)
             {
@@ -49,7 +52,7 @@ namespace PickEm.Web.Controllers
         // GET: Game/Create
         public IActionResult Create()
         {
-            var viewModel = new GameIndexData();
+            var viewModel = new GameCreateViewModel();
             viewModel.Teams = _context.TeamModel;
             return View(viewModel);
         }
@@ -59,7 +62,7 @@ namespace PickEm.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(GameIndexData viewModel)
+        public async Task<IActionResult> Create(GameCreateViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
