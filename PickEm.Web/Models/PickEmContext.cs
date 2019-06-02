@@ -13,7 +13,10 @@ namespace PickEm.Models
         {
         }
 
-        public DbSet<PickEm.Models.Team> Team { get; set; }
-        public DbSet<PickEm.Models.Game> Game { get; set; }
+        public DbSet<PickEm.Models.TeamModel> TeamModel { get; set; }
+        public DbSet<PickEm.Models.GameModel> GameModel { get; set; }
+
+        public DbSet<PickEm.Models.BracketModel> BracketModel { get; set; }
+
     }
 }

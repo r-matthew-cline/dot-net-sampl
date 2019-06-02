@@ -2779,8 +2779,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Teams/Edit.cshtml",
-      "TargetPath": "Views/Teams/Edit.cshtml",
+      "FilePath": "Views/Team/Delete.cshtml",
+      "TargetPath": "Views/Team/Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Game/Index.cshtml",
+      "TargetPath": "Views/Game/Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2789,18 +2794,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Teams/Index.cshtml",
-      "TargetPath": "Views/Teams/Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views/BracketBuilder/ViewBracket.cshtml",
       "TargetPath": "Views/BracketBuilder/ViewBracket.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Teams/Delete.cshtml",
-      "TargetPath": "Views/Teams/Delete.cshtml",
+      "FilePath": "Views/Bracket/Create.cshtml",
+      "TargetPath": "Views/Bracket/Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2809,23 +2809,23 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Games/Index.cshtml",
-      "TargetPath": "Views/Games/Index.cshtml",
+      "FilePath": "Views/Team/Edit.cshtml",
+      "TargetPath": "Views/Team/Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Teams/Details.cshtml",
-      "TargetPath": "Views/Teams/Details.cshtml",
+      "FilePath": "Views/Team/Details.cshtml",
+      "TargetPath": "Views/Team/Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Teams/Create.cshtml",
-      "TargetPath": "Views/Teams/Create.cshtml",
+      "FilePath": "Views/Game/Details.cshtml",
+      "TargetPath": "Views/Game/Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Games/Edit.cshtml",
-      "TargetPath": "Views/Games/Edit.cshtml",
+      "FilePath": "Views/Game/Create.cshtml",
+      "TargetPath": "Views/Game/Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2834,18 +2834,33 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Games/Create.cshtml",
-      "TargetPath": "Views/Games/Create.cshtml",
+      "FilePath": "Views/Bracket/Delete.cshtml",
+      "TargetPath": "Views/Bracket/Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Games/Delete.cshtml",
-      "TargetPath": "Views/Games/Delete.cshtml",
+      "FilePath": "Views/Bracket/Index.cshtml",
+      "TargetPath": "Views/Bracket/Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Games/Details.cshtml",
-      "TargetPath": "Views/Games/Details.cshtml",
+      "FilePath": "Views/Bracket/Details.cshtml",
+      "TargetPath": "Views/Bracket/Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Game/Delete.cshtml",
+      "TargetPath": "Views/Game/Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Bracket/Edit.cshtml",
+      "TargetPath": "Views/Bracket/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Game/Edit.cshtml",
+      "TargetPath": "Views/Game/Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2854,8 +2869,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Team/Index.cshtml",
+      "TargetPath": "Views/Team/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Shared/_Layout.cshtml",
       "TargetPath": "Views/Shared/_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Team/Create.cshtml",
+      "TargetPath": "Views/Team/Create.cshtml",
       "FileKind": "mvc"
     }
   ]
