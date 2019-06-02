@@ -73,6 +73,17 @@ namespace PickEm.Web.Controllers
             return View(viewModel);
         }
 
+        // GET: Game/PickGame?homeId=1&awayId=2
+        public IActionResult PickGame(int? homeId, int? awayId)
+        {
+            var gameModel = new GameModel();
+            gameModel.HomeTeamId = homeId;
+            gameModel.AwayTeamId = awayId;
+            gameModel.HomeTeam = _context.TeamModel.Where(t => t.TeamId == homeId).Single();
+            gameModel.AwayTeam = _context.TeamModel.Where(t => t.TeamId == awayId).Single();
+            return View(gameModel);
+        }
+
         // GET: Game/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

@@ -2849,6 +2849,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Game/PickGame.cshtml",
+      "TargetPath": "Views/Game/PickGame.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Game/Delete.cshtml",
       "TargetPath": "Views/Game/Delete.cshtml",
       "FileKind": "mvc"

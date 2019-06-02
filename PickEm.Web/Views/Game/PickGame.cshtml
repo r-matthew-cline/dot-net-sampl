@@ -1,0 +1,91 @@
+@model PickEm.Models.GameModel
+
+@{
+    ViewData["Title"] = "Pick Game";
+}
+
+
+<h1>Create</h1>
+
+<h4>GameModel</h4>
+<hr />
+<div class="row">
+
+
+    <div class="col-sm-6">
+    <div class="card" style="width: 100%;">
+        <img class="card-img-top" src="https://mepca.org/wp-content/uploads/sites/93/2019/05/Image-Coming-Soon.png" alt="Card image cap">
+        <div class="card-body">
+            <h3 class="card-title" style="text-align: center;">
+                @Html.DisplayFor(model => model.HomeTeam.Name)
+            </h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    Score: @Html.DisplayFor(model => model.HomeTeam.AvgScore)
+                </li>
+                <li class="list-group-item">
+                    Opponent Score: @Html.DisplayFor(model => model.HomeTeam.AvgOppScore)
+                </li>
+                <li class="list-group-item">
+                    Defensive Rebounds: @Html.DisplayFor(model => model.HomeTeam.AvgDefReb)
+                </li>
+                <li class="list-group-item">
+                    Offensive Rebounds: @Html.DisplayFor(model => model.HomeTeam.AvgOffReb)
+                </li>
+                <li class="list-group-item">
+                    Steals: @Html.DisplayFor(model => model.HomeTeam.AvgStl)
+                </li>
+                <li class="list-group-item">
+                    Blocks: @Html.DisplayFor(model => model.HomeTeam.AvgBlk)
+                </li>
+                <li class="list-group-item">
+                    Seed: @Html.DisplayFor(model => model.HomeTeam.Seed)
+                </li>
+            </ul>
+            <a type="submit" value="Create" class="btn btn-primary" style="margin: 50px; align:center;">Pick!</a>
+        </div>
+    </div>
+    </div>
+
+    <div class="col-sm-6">
+    <div class="card" style="width: 100%;">
+        <img class="card-img-top" src="https://mepca.org/wp-content/uploads/sites/93/2019/05/Image-Coming-Soon.png" alt="Card image cap">
+        <div class="card-body">
+            <h3 class="card-title" style="text-align: center;">
+                @Html.DisplayFor(model => model.AwayTeam.Name)
+            </h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    Score: @Html.DisplayFor(model => model.AwayTeam.AvgScore)
+                </li>
+                <li class="list-group-item">
+                    Opponent Score: @Html.DisplayFor(model => model.AwayTeam.AvgOppScore)
+                </li>
+                <li class="list-group-item">
+                    Defensive Rebounds: @Html.DisplayFor(model => model.AwayTeam.AvgDefReb)
+                </li>
+                <li class="list-group-item">
+                    Offensive Rebounds: @Html.DisplayFor(model => model.AwayTeam.AvgOffReb)
+                </li>
+                <li class="list-group-item">
+                    Steals: @Html.DisplayFor(model => model.AwayTeam.AvgStl)
+                </li>
+                <li class="list-group-item">
+                    Blocks: @Html.DisplayFor(model => model.AwayTeam.AvgBlk)
+                </li>
+                <li class="list-group-item">
+                    Seed: @Html.DisplayFor(model => model.AwayTeam.Seed)
+                </li>
+            </ul>
+            <a type="submit" value="Create" class="btn btn-primary" style="margin: 50px; align:center;">Pick!</a>
+        </div>
+    </div>
+    </div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
