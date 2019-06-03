@@ -26,8 +26,10 @@ namespace PickEm.Models
         public decimal AvgStl { get; set; }
 
         [Display(Name="Blocks")]
+        [DisplayFormat(DataFormatString = "{0:000:#}", ApplyFormatInEditMode = true)]
         public decimal AvgBlk { get; set; }
         [Display(Name="Assists")]
+        public decimal AvgAst { get; set; }
         public int Seed { get; set; }
 
         public virtual List<GameModel> HomeGames { get; set; }

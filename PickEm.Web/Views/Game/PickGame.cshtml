@@ -27,6 +27,9 @@
                     Opponent Score: @Html.DisplayFor(model => model.HomeTeam.AvgOppScore)
                 </li>
                 <li class="list-group-item">
+                    Assists: @Html.DisplayFor(model => model.HomeTeam.AvgAst)
+                </li>
+                <li class="list-group-item">
                     Defensive Rebounds: @Html.DisplayFor(model => model.HomeTeam.AvgDefReb)
                 </li>
                 <li class="list-group-item">
@@ -42,7 +45,7 @@
                     Seed: @Html.DisplayFor(model => model.HomeTeam.Seed)
                 </li>
             </ul>
-            <a type="submit" value="Create" class="btn btn-primary" style="margin: 50px; align:center;">Pick!</a>
+            <a type="submit" value="Create" class="btn btn-primary" style="display: block; margin: 50px; text-align:center;">Pick!</a>
         </div>
     </div>
     </div>
@@ -62,6 +65,9 @@
                     Opponent Score: @Html.DisplayFor(model => model.AwayTeam.AvgOppScore)
                 </li>
                 <li class="list-group-item">
+                    Assists: @Html.DisplayFor(model => model.AwayTeam.AvgAst)
+                </li>
+                <li class="list-group-item">
                     Defensive Rebounds: @Html.DisplayFor(model => model.AwayTeam.AvgDefReb)
                 </li>
                 <li class="list-group-item">
@@ -77,7 +83,7 @@
                     Seed: @Html.DisplayFor(model => model.AwayTeam.Seed)
                 </li>
             </ul>
-            <a type="submit" value="Create" class="btn btn-primary" style="margin: 50px; align:center;">Pick!</a>
+            <a type="submit" value="Create" class="btn btn-primary" style="display: block; margin: 50px; text-align:center;">Pick!</a>
         </div>
     </div>
     </div>

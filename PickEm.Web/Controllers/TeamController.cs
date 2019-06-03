@@ -53,7 +53,7 @@ namespace PickEm.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,TeamId,Name,AvgScore,AvgOppScore,AvgOffReb,AvgDefReb,AvgStl,AvgBlk,Seed")] TeamModel teamModel)
+        public async Task<IActionResult> Create([Bind("Id,TeamId,Name,AvgScore,AvgOppScore,AvgOffReb,AvgDefReb,AvgStl,AvgBlk,AvgAst,Seed")] TeamModel teamModel)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace PickEm.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,TeamId,Name,AvgScore,AvgOppScore,AvgOffReb,AvgDefReb,AvgStl,AvgBlk,Seed")] TeamModel teamModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,TeamId,Name,AvgScore,AvgOppScore,AvgOffReb,AvgDefReb,AvgStl,AvgBlk,AvgAst,Seed")] TeamModel teamModel)
         {
             if (id != teamModel.TeamId)
             {
