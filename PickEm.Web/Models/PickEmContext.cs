@@ -24,6 +24,11 @@ namespace PickEm.Models
                 .HasMany(t => t.AwayGames)
                 .WithOne(g => g.AwayTeam)
                 .HasForeignKey(g => g.AwayTeamId);
+
+            modelBuilder.Entity<BracketModel>()
+                .HasMany(b => b.Games)
+                .WithOne(g => g.Bracket)
+                .HasForeignKey(g => g.BracketId);
         }
 
         public DbSet<PickEm.Models.TeamModel> TeamModel { get; set; }

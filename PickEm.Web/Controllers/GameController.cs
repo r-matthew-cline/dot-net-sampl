@@ -74,13 +74,29 @@ namespace PickEm.Web.Controllers
         }
 
         // GET: Game/PickGame?homeId=1&awayId=2
-        public IActionResult PickGame(int? homeId, int? awayId)
+        public IActionResult PickGame(int homeId, int awayId)
         {
             var gameModel = new GameModel();
             gameModel.HomeTeamId = homeId;
             gameModel.AwayTeamId = awayId;
             gameModel.HomeTeam = _context.TeamModel.Where(t => t.TeamId == homeId).Single();
             gameModel.AwayTeam = _context.TeamModel.Where(t => t.TeamId == awayId).Single();
+            return View(gameModel);
+        }
+
+        // POST: Game/PickGame?homeId=1&awayId=2
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> PickGame(int homeId, int awayId,[Bind("Id,HomeTeam,AwayTeam,HomeTeamId,AwayTeamId,HomeScore,AwayScore,Prediction")] GameModel gameModel)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(gameModel);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
             return View(gameModel);
         }
 

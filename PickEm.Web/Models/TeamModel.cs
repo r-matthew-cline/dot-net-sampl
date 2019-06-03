@@ -10,26 +10,33 @@ namespace PickEm.Models
         public int TeamId { get; set; }
         public string Name { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:0.0}", ApplyFormatInEditMode = true)]
         [Display(Name="Points")]
-        public decimal AvgScore { get; set; }
+        public decimal? AvgScore { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:0.0}", ApplyFormatInEditMode = true)]
         [Display(Name="Points Allowed")]
-        public decimal AvgOppScore { get; set; }
+        public decimal? AvgOppScore { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:0.0}", ApplyFormatInEditMode = true)]
         [Display(Name="Offensive Rebounds")]
-        public decimal AvgOffReb { get; set; }
+        public decimal? AvgOffReb { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:0.0}", ApplyFormatInEditMode = true)]
         [Display(Name="Defensive Rebounds")]
-        public decimal AvgDefReb { get; set; }
+        public decimal? AvgDefReb { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:0.0}", ApplyFormatInEditMode = true)]
         [Display(Name="Steals")]
-        public decimal AvgStl { get; set; }
+        public decimal? AvgStl { get; set; }
 
         [Display(Name="Blocks")]
-        [DisplayFormat(DataFormatString = "{0:000:#}", ApplyFormatInEditMode = true)]
-        public decimal AvgBlk { get; set; }
+        [DisplayFormat(DataFormatString = "{0:0.0}", ApplyFormatInEditMode = true)]
+        public decimal? AvgBlk { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:0.0}", ApplyFormatInEditMode = true)]
         [Display(Name="Assists")]
-        public decimal AvgAst { get; set; }
+        public decimal? AvgAst { get; set; }
         public int Seed { get; set; }
 
         public virtual List<GameModel> HomeGames { get; set; }

@@ -26,12 +26,13 @@ namespace PickEm.Web.Migrations
                     TeamId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(nullable: true),
-                    AvgScore = table.Column<decimal>(nullable: false),
-                    AvgOppScore = table.Column<decimal>(nullable: false),
-                    AvgOffReb = table.Column<decimal>(nullable: false),
-                    AvgDefReb = table.Column<decimal>(nullable: false),
-                    AvgStl = table.Column<decimal>(nullable: false),
-                    AvgBlk = table.Column<decimal>(nullable: false),
+                    AvgScore = table.Column<decimal>(nullable: true),
+                    AvgOppScore = table.Column<decimal>(nullable: true),
+                    AvgOffReb = table.Column<decimal>(nullable: true),
+                    AvgDefReb = table.Column<decimal>(nullable: true),
+                    AvgStl = table.Column<decimal>(nullable: true),
+                    AvgBlk = table.Column<decimal>(nullable: true),
+                    AvgAst = table.Column<decimal>(nullable: true),
                     Seed = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -50,7 +51,7 @@ namespace PickEm.Web.Migrations
                     HomeScore = table.Column<int>(nullable: true),
                     AwayScore = table.Column<int>(nullable: true),
                     Prediction = table.Column<bool>(nullable: true),
-                    BracketModelId = table.Column<int>(nullable: true)
+                    BracketId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -62,8 +63,8 @@ namespace PickEm.Web.Migrations
                         principalColumn: "TeamId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_GameModel_BracketModel_BracketModelId",
-                        column: x => x.BracketModelId,
+                        name: "FK_GameModel_BracketModel_BracketId",
+                        column: x => x.BracketId,
                         principalTable: "BracketModel",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -81,9 +82,9 @@ namespace PickEm.Web.Migrations
                 column: "AwayTeamId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_GameModel_BracketModelId",
+                name: "IX_GameModel_BracketId",
                 table: "GameModel",
-                column: "BracketModelId");
+                column: "BracketId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_GameModel_HomeTeamId",

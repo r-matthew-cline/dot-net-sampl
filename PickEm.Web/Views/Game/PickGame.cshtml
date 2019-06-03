@@ -45,7 +45,18 @@
                     Seed: @Html.DisplayFor(model => model.HomeTeam.Seed)
                 </li>
             </ul>
-            <a type="submit" value="Create" class="btn btn-primary" style="display: block; margin: 50px; text-align:center;">Pick!</a>
+            <form asp-action="PickGame">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="HomeTeamId" />
+                    <input type="hidden" asp-for="AwayTeamId" />
+                    <input type="hidden" asp-for="HomeScore" />
+                    <input type="hidden" asp-for="AwayScore" />
+                    <input type="hidden" asp-for="Prediction" value="True" />
+                <div class="form-group">
+                    <input type="submit" value="Pick!" class="btn btn-primary" />
+                </div>
+            </form>
         </div>
     </div>
     </div>
@@ -83,7 +94,18 @@
                     Seed: @Html.DisplayFor(model => model.AwayTeam.Seed)
                 </li>
             </ul>
-            <a type="submit" value="Create" class="btn btn-primary" style="display: block; margin: 50px; text-align:center;">Pick!</a>
+            <form asp-action="PickGame">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="HomeTeamId" />
+                    <input type="hidden" asp-for="AwayTeamId" />
+                    <input type="hidden" asp-for="HomeScore" />
+                    <input type="hidden" asp-for="AwayScore" />
+                    <input type="hidden" asp-for="Prediction" value="False" />
+                <div class="form-group">
+                    <input type="submit" value="Pick!" class="btn btn-primary" />
+                </div>
+            </form>
         </div>
     </div>
     </div>

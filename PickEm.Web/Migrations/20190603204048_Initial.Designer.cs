@@ -9,8 +9,8 @@ using PickEm.Models;
 namespace PickEm.Web.Migrations
 {
     [DbContext(typeof(PickEmContext))]
-    [Migration("20190602202225_FixTeamStats")]
-    partial class FixTeamStats
+    [Migration("20190603204048_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,7 +39,7 @@ namespace PickEm.Web.Migrations
 
                     b.Property<int?>("AwayTeamId");
 
-                    b.Property<int?>("BracketModelId");
+                    b.Property<int?>("BracketId");
 
                     b.Property<int?>("HomeScore");
 
@@ -51,7 +51,7 @@ namespace PickEm.Web.Migrations
 
                     b.HasIndex("AwayTeamId");
 
-                    b.HasIndex("BracketModelId");
+                    b.HasIndex("BracketId");
 
                     b.HasIndex("HomeTeamId");
 
@@ -63,19 +63,19 @@ namespace PickEm.Web.Migrations
                     b.Property<int>("TeamId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<decimal>("AvgAst");
+                    b.Property<decimal?>("AvgAst");
 
-                    b.Property<decimal>("AvgBlk");
+                    b.Property<decimal?>("AvgBlk");
 
-                    b.Property<decimal>("AvgDefReb");
+                    b.Property<decimal?>("AvgDefReb");
 
-                    b.Property<decimal>("AvgOffReb");
+                    b.Property<decimal?>("AvgOffReb");
 
-                    b.Property<decimal>("AvgOppScore");
+                    b.Property<decimal?>("AvgOppScore");
 
-                    b.Property<decimal>("AvgScore");
+                    b.Property<decimal?>("AvgScore");
 
-                    b.Property<decimal>("AvgStl");
+                    b.Property<decimal?>("AvgStl");
 
                     b.Property<string>("Name");
 
@@ -92,9 +92,9 @@ namespace PickEm.Web.Migrations
                         .WithMany("AwayGames")
                         .HasForeignKey("AwayTeamId");
 
-                    b.HasOne("PickEm.Models.BracketModel")
+                    b.HasOne("PickEm.Models.BracketModel", "Bracket")
                         .WithMany("Games")
-                        .HasForeignKey("BracketModelId");
+                        .HasForeignKey("BracketId");
 
                     b.HasOne("PickEm.Models.TeamModel", "HomeTeam")
                         .WithMany("HomeGames")
