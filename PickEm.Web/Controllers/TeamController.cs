@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using PickEm.Models;
 
 namespace PickEm.Web.Controllers
@@ -22,6 +24,31 @@ namespace PickEm.Web.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.TeamModel.ToListAsync());
+        }
+
+        // GET: Team/GetStats
+        public async Task<IActionResult> GetStats()
+        {
+            var teams = _context.TeamModel.ToList();
+
+            foreach (var team in teams)
+            {
+                string url = "http://stats.clinetechnologysolutions.com/get-stats/" + team.TeamId.ToString();
+                using (HttpClient client = new HttpClient())
+                {
+                    var response = JsonConvert.DeserializeObject<Dictionary<string, decimal>>(await client.GetStringAsync(url));
+                    team.AvgAst = response["Ast"];
+                    team.AvgBlk = response["Blk"];
+                    team.AvgDefReb = response["DefReb"];
+                    team.AvgOffReb = response["OffReb"];
+                    team.AvgOppScore = response["OppScore"];
+                    team.AvgScore = response["Score"];
+                    team.AvgStl = response["Stl"];
+                }
+                _context.Update(team);
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Team/Details/5
