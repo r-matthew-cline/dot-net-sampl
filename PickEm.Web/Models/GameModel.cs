@@ -23,6 +23,7 @@ namespace PickEm.Models
         public bool? Prediction { get; set; }
 
         public int? BracketId { get; set; }
+        public int? BracketPosition { get; set; }
 
         public virtual TeamModel HomeTeam { get; set; }
         public virtual TeamModel AwayTeam { get; set; }

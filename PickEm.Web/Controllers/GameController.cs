@@ -73,12 +73,14 @@ namespace PickEm.Web.Controllers
             return View(viewModel);
         }
 
-        // GET: Game/PickGame?homeId=1&awayId=2
-        public IActionResult PickGame(int homeId, int awayId)
+        // GET: Game/PickGame?homeId=1&awayId=2&bracketId=3&bracketPosition
+        public IActionResult PickGame(int homeId, int awayId, int bracketId, int bracketPosition)
         {
             var gameModel = new GameModel();
             gameModel.HomeTeamId = homeId;
             gameModel.AwayTeamId = awayId;
+            gameModel.BracketId = bracketId;
+            gameModel.BracketPosition = bracketPosition;
             gameModel.HomeTeam = _context.TeamModel.Where(t => t.TeamId == homeId).Single();
             gameModel.AwayTeam = _context.TeamModel.Where(t => t.TeamId == awayId).Single();
             return View(gameModel);
@@ -89,13 +91,22 @@ namespace PickEm.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> PickGame(int homeId, int awayId,[Bind("Id,HomeTeam,AwayTeam,HomeTeamId,AwayTeamId,HomeScore,AwayScore,Prediction")] GameModel gameModel)
+        public async Task<IActionResult> PickGame(int homeId, int awayId,[Bind("Id,HomeTeam,AwayTeam,HomeTeamId,AwayTeamId,HomeScore,AwayScore,BracketId,BracketPosition,Prediction")] GameModel gameModel)
         {
             if (ModelState.IsValid)
             {
+                var bracket = _context.BracketModel.Include(b => b.Games).Where(b => b.Id == gameModel.BracketId).Single();
+                bracket.Games.Append(gameModel);
+                _context.Update(bracket);
                 _context.Add(gameModel);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (gameModel.BracketPosition < 62)
+                {
+                    int nextGame = gameModel.BracketPosition.Value + 1;
+                    return RedirectToAction("Pick", "Bracket", new { bracketId = gameModel.BracketId.Value, bracketPosition = nextGame});
+                }
+                return RedirectToAction("Index", "Bracket", new { area = ""});
+                
             }
             return View(gameModel);
         }

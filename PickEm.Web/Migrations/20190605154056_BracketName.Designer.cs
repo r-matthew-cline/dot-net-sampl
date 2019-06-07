@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PickEm.Models;
 
 namespace PickEm.Web.Migrations
 {
     [DbContext(typeof(PickEmContext))]
-    partial class PickEmContextModelSnapshot : ModelSnapshot
+    [Migration("20190605154056_BracketName")]
+    partial class BracketName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

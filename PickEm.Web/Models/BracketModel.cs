@@ -8,6 +8,8 @@ namespace PickEm.Models
     public class BracketModel
     {
         public int Id { get; set; }
+
+        public string Name { get; set; }
         
         public virtual List<GameModel> Games { get; set; }
 
