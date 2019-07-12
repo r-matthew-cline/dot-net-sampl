@@ -20,6 +20,9 @@
                 @Html.DisplayFor(model => model.HomeTeam.Name)
             </h3>
             <ul class="list-group list-group-flush">
+		<li class="list-group-item">
+		    Prediction: @ViewData["HomePred"]
+		</li>
                 <li class="list-group-item">
                     Score: @Html.DisplayFor(model => model.HomeTeam.AvgScore)
                 </li>
@@ -71,6 +74,9 @@
                 @Html.DisplayFor(model => model.AwayTeam.Name)
             </h3>
             <ul class="list-group list-group-flush">
+		<li class="list-group-item">
+		    Prediction: @ViewData["AwayPred"]
+		</li>
                 <li class="list-group-item">
                     Score: @Html.DisplayFor(model => model.AwayTeam.AvgScore)
                 </li>

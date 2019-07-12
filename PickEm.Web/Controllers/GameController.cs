@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net.Http;
+using Newtonsoft.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -74,8 +76,15 @@ namespace PickEm.Web.Controllers
         }
 
         // GET: Game/PickGame?homeId=1&awayId=2&bracketId=3&bracketPosition
-        public IActionResult PickGame(int homeId, int awayId, int bracketId, int bracketPosition)
+        public async Task<IActionResult>  PickGame(int homeId, int awayId, int bracketId, int bracketPosition)
         {
+	    string pred_call = "http://localhost:5200/" + homeId.ToString() + "/" + awayId.ToString();
+	    using (HttpClient client = new HttpClient())
+	    {
+	       var response = JsonConvert.DeserializeObject<Dictionary<string, decimal>>(await client.GetStringAsync(pred_call));
+	       ViewData["HomePred"] = response[homeId.ToString()];
+       	       ViewData["AwayPred"] = response[awayId.ToString()];	       
+	    }
             var gameModel = new GameModel();
             gameModel.HomeTeamId = homeId;
             gameModel.AwayTeamId = awayId;

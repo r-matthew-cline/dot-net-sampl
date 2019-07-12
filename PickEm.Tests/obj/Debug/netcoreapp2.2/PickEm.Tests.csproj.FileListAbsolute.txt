@@ -1,0 +1,17 @@
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/bin/Debug/netcoreapp2.2/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/bin/Debug/netcoreapp2.2/xunit.runner.reporters.netcoreapp10.dll
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/bin/Debug/netcoreapp2.2/xunit.runner.utility.netcoreapp10.dll
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/bin/Debug/netcoreapp2.2/PickEm.Tests.deps.json
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/bin/Debug/netcoreapp2.2/PickEm.Tests.runtimeconfig.json
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/bin/Debug/netcoreapp2.2/PickEm.Tests.runtimeconfig.dev.json
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/bin/Debug/netcoreapp2.2/PickEm.Tests.dll
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/bin/Debug/netcoreapp2.2/PickEm.Tests.pdb
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/bin/Debug/netcoreapp2.2/PickEm.Common.dll
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/bin/Debug/netcoreapp2.2/PickEm.Common.pdb
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/obj/Debug/netcoreapp2.2/PickEm.Tests.csprojAssemblyReference.cache
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/obj/Debug/netcoreapp2.2/PickEm.Tests.csproj.CoreCompileInputs.cache
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/obj/Debug/netcoreapp2.2/PickEm.Tests.AssemblyInfoInputs.cache
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/obj/Debug/netcoreapp2.2/PickEm.Tests.AssemblyInfo.cs
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/obj/Debug/netcoreapp2.2/PickEm.Tests.csproj.CopyComplete
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/obj/Debug/netcoreapp2.2/PickEm.Tests.dll
+/home/matthew.cline/repos/dot-net-sample/PickEm.Tests/obj/Debug/netcoreapp2.2/PickEm.Tests.pdb

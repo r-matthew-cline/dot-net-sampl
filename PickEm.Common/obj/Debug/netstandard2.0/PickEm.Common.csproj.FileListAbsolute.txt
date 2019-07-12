@@ -7,3 +7,12 @@
 /home/matthew_cline/repos/dot-net-sample/PickEm.Common/obj/Debug/netstandard2.0/PickEm.Common.AssemblyInfo.cs
 /home/matthew_cline/repos/dot-net-sample/PickEm.Common/obj/Debug/netstandard2.0/PickEm.Common.dll
 /home/matthew_cline/repos/dot-net-sample/PickEm.Common/obj/Debug/netstandard2.0/PickEm.Common.pdb
+/home/matthew.cline/repos/dot-net-sample/PickEm.Common/bin/Debug/netstandard2.0/PickEm.Common.deps.json
+/home/matthew.cline/repos/dot-net-sample/PickEm.Common/bin/Debug/netstandard2.0/PickEm.Common.dll
+/home/matthew.cline/repos/dot-net-sample/PickEm.Common/bin/Debug/netstandard2.0/PickEm.Common.pdb
+/home/matthew.cline/repos/dot-net-sample/PickEm.Common/obj/Debug/netstandard2.0/PickEm.Common.csprojAssemblyReference.cache
+/home/matthew.cline/repos/dot-net-sample/PickEm.Common/obj/Debug/netstandard2.0/PickEm.Common.csproj.CoreCompileInputs.cache
+/home/matthew.cline/repos/dot-net-sample/PickEm.Common/obj/Debug/netstandard2.0/PickEm.Common.AssemblyInfoInputs.cache
+/home/matthew.cline/repos/dot-net-sample/PickEm.Common/obj/Debug/netstandard2.0/PickEm.Common.AssemblyInfo.cs
+/home/matthew.cline/repos/dot-net-sample/PickEm.Common/obj/Debug/netstandard2.0/PickEm.Common.dll
+/home/matthew.cline/repos/dot-net-sample/PickEm.Common/obj/Debug/netstandard2.0/PickEm.Common.pdb

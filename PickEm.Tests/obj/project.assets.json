@@ -1675,6 +1675,16 @@
         "build": {
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
+      },
+      "PickEm.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/PickEm.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PickEm.Common.dll": {}
+        }
       }
     }
   },
@@ -5847,12 +5857,18 @@
         "xunit.runner.visualstudio.2.4.0.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "PickEm.Common/1.0.0": {
+      "type": "project",
+      "path": "../PickEm.Common/PickEm.Common.csproj",
+      "msbuildProject": "../PickEm.Common/PickEm.Common.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.NET.Test.Sdk >= 16.0.1",
       "Microsoft.NETCore.App >= 2.2.0",
+      "PickEm.Common >= 1.0.0",
       "xunit >= 2.4.0",
       "xunit.runner.visualstudio >= 2.4.0"
     ]
@@ -5884,7 +5900,11 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/matthew.cline/repos/dot-net-sample/PickEm.Common/PickEm.Common.csproj": {
+              "projectPath": "/home/matthew.cline/repos/dot-net-sample/PickEm.Common/PickEm.Common.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
