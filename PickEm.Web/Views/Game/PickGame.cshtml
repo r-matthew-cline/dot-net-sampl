@@ -13,42 +13,9 @@
 
 
     <div class="col-sm-6">
-    <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="https://mepca.org/wp-content/uploads/sites/93/2019/05/Image-Coming-Soon.png" alt="Card image cap">
-        <div class="card-body">
-            <h3 class="card-title" style="text-align: center;">
-                @Html.DisplayFor(model => model.HomeTeam.Name)
-            </h3>
-            <ul class="list-group list-group-flush">
-		<li class="list-group-item">
-		    Prediction: @ViewData["HomePred"]
-		</li>
-                <li class="list-group-item">
-                    Score: @Html.DisplayFor(model => model.HomeTeam.AvgScore)
-                </li>
-                <li class="list-group-item">
-                    Opponent Score: @Html.DisplayFor(model => model.HomeTeam.AvgOppScore)
-                </li>
-                <li class="list-group-item">
-                    Assists: @Html.DisplayFor(model => model.HomeTeam.AvgAst)
-                </li>
-                <li class="list-group-item">
-                    Defensive Rebounds: @Html.DisplayFor(model => model.HomeTeam.AvgDefReb)
-                </li>
-                <li class="list-group-item">
-                    Offensive Rebounds: @Html.DisplayFor(model => model.HomeTeam.AvgOffReb)
-                </li>
-                <li class="list-group-item">
-                    Steals: @Html.DisplayFor(model => model.HomeTeam.AvgStl)
-                </li>
-                <li class="list-group-item">
-                    Blocks: @Html.DisplayFor(model => model.HomeTeam.AvgBlk)
-                </li>
-                <li class="list-group-item">
-                    Seed: @Html.DisplayFor(model => model.HomeTeam.Seed)
-                </li>
-            </ul>
-            <form asp-action="PickGame">
+
+   
+            <form asp-action="PickGame" name="home-wins" id="home-wins">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Id" />
                     <input type="hidden" asp-for="HomeTeamId" />
@@ -58,51 +25,55 @@
                     <input type="hidden" asp-for="BracketId" />
                     <input type="hidden" asp-for="BracketPosition" />
                     <input type="hidden" asp-for="Prediction" value="True" />
-                <div class="form-group">
-                    <input type="submit" value="Pick!" class="btn btn-primary" />
-                </div>
-            </form>
+                    <div class="form-group">
+                        <div class="card game-card" style="width: 100%;" onclick="document.forms['home-wins'].submit();">
+                            <img class="card-img-top" src="https://mepca.org/wp-content/uploads/sites/93/2019/05/Image-Coming-Soon.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h3 class="card-title" style="text-align: center;">
+                                    @Html.DisplayFor(model => model.HomeTeam.Name)
+                                </h3>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="progress" style="height:2rem">
+                                            <div class="progress-bar progress-bar-striped @ViewData["HomeColor"]" role="progressbar" aria-valuenow="@ViewData["HomePred"]" aria-valuemin="0" aria-valuemax="100" style="width:@ViewData["HomePred"]%; height: 100%">
+                                                HAL's Confidence: @String.Format("{0:0.0}", ViewData["HomePred"])%
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        Score: @Html.DisplayFor(model => model.HomeTeam.AvgScore)
+                                    </li>
+                                    <li class="list-group-item">
+                                        Opponent Score: @Html.DisplayFor(model => model.HomeTeam.AvgOppScore)
+                                    </li>
+                                    <li class="list-group-item">
+                                        Assists: @Html.DisplayFor(model => model.HomeTeam.AvgAst)
+                                    </li>
+                                    <li class="list-group-item">
+                                        Defensive Rebounds: @Html.DisplayFor(model => model.HomeTeam.AvgDefReb)
+                                    </li>
+                                    <li class="list-group-item">
+                                        Offensive Rebounds: @Html.DisplayFor(model => model.HomeTeam.AvgOffReb)
+                                    </li>
+                                    <li class="list-group-item">
+                                        Steals: @Html.DisplayFor(model => model.HomeTeam.AvgStl)
+                                    </li>
+                                    <li class="list-group-item">
+                                        Blocks: @Html.DisplayFor(model => model.HomeTeam.AvgBlk)
+                                    </li>
+                                    <li class="list-group-item">
+                                        Seed: @Html.DisplayFor(model => model.HomeTeam.Seed)
+                                    </li>
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+                </form>
         </div>
-    </div>
-    </div>
 
     <div class="col-sm-6">
-    <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="https://mepca.org/wp-content/uploads/sites/93/2019/05/Image-Coming-Soon.png" alt="Card image cap">
-        <div class="card-body">
-            <h3 class="card-title" style="text-align: center;">
-                @Html.DisplayFor(model => model.AwayTeam.Name)
-            </h3>
-            <ul class="list-group list-group-flush">
-		<li class="list-group-item">
-		    Prediction: @ViewData["AwayPred"]
-		</li>
-                <li class="list-group-item">
-                    Score: @Html.DisplayFor(model => model.AwayTeam.AvgScore)
-                </li>
-                <li class="list-group-item">
-                    Opponent Score: @Html.DisplayFor(model => model.AwayTeam.AvgOppScore)
-                </li>
-                <li class="list-group-item">
-                    Assists: @Html.DisplayFor(model => model.AwayTeam.AvgAst)
-                </li>
-                <li class="list-group-item">
-                    Defensive Rebounds: @Html.DisplayFor(model => model.AwayTeam.AvgDefReb)
-                </li>
-                <li class="list-group-item">
-                    Offensive Rebounds: @Html.DisplayFor(model => model.AwayTeam.AvgOffReb)
-                </li>
-                <li class="list-group-item">
-                    Steals: @Html.DisplayFor(model => model.AwayTeam.AvgStl)
-                </li>
-                <li class="list-group-item">
-                    Blocks: @Html.DisplayFor(model => model.AwayTeam.AvgBlk)
-                </li>
-                <li class="list-group-item">
-                    Seed: @Html.DisplayFor(model => model.AwayTeam.Seed)
-                </li>
-            </ul>
-            <form asp-action="PickGame">
+    
+            <form asp-action="PickGame" name="away-wins" id="away-wins">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Id" />
                     <input type="hidden" asp-for="HomeTeamId" />
@@ -112,13 +83,53 @@
                     <input type="hidden" asp-for="BracketId" />
                     <input type="hidden" asp-for="BracketPosition" />
                     <input type="hidden" asp-for="Prediction" value="False" />
-                <div class="form-group">
-                    <input type="submit" value="Pick!" class="btn btn-primary" />
-                </div>
+                    <div class="form-group">
+                        <div class="card game-card" style="width: 100%;" onClick="document.forms['away-wins'].submit();">
+                            <img class="card-img-top" src="https://mepca.org/wp-content/uploads/sites/93/2019/05/Image-Coming-Soon.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h3 class="card-title" style="text-align: center;">
+                                    @Html.DisplayFor(model => model.AwayTeam.Name)
+                                </h3>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="progress" style="height:2rem">
+                                            <div class="progress-bar progress-bar-striped @ViewData["AwayColor"]" role="progressbar" aria-valuenow="@ViewData["AwayPred"]" aria-valuemin="0" aria-valuemax="100" style="width:@ViewData["AwayPred"]%">
+                                                HAL's Confidence: @String.Format("{0:0.0}", ViewData["AwayPred"])%
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        Score: @Html.DisplayFor(model => model.AwayTeam.AvgScore)
+                                    </li>
+                                    <li class="list-group-item">
+                                        Opponent Score: @Html.DisplayFor(model => model.AwayTeam.AvgOppScore)
+                                    </li>
+                                    <li class="list-group-item">
+                                        Assists: @Html.DisplayFor(model => model.AwayTeam.AvgAst)
+                                    </li>
+                                    <li class="list-group-item">
+                                        Defensive Rebounds: @Html.DisplayFor(model => model.AwayTeam.AvgDefReb)
+                                    </li>
+                                    <li class="list-group-item">
+                                        Offensive Rebounds: @Html.DisplayFor(model => model.AwayTeam.AvgOffReb)
+                                    </li>
+                                    <li class="list-group-item">
+                                        Steals: @Html.DisplayFor(model => model.AwayTeam.AvgStl)
+                                    </li>
+                                    <li class="list-group-item">
+                                        Blocks: @Html.DisplayFor(model => model.AwayTeam.AvgBlk)
+                                    </li>
+                                    <li class="list-group-item">
+                                        Seed: @Html.DisplayFor(model => model.AwayTeam.Seed)
+                                    </li>
+                                </ul>
+                                </div>
+                                </div>
+                    </div>
             </form>
         </div>
     </div>
-    </div>
+    
 
 <div>
     <a asp-action="Index">Back to List</a>

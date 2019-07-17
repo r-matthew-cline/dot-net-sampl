@@ -78,13 +78,15 @@ namespace PickEm.Web.Controllers
         // GET: Game/PickGame?homeId=1&awayId=2&bracketId=3&bracketPosition
         public async Task<IActionResult>  PickGame(int homeId, int awayId, int bracketId, int bracketPosition)
         {
-	    string pred_call = "http://localhost:5200/" + homeId.ToString() + "/" + awayId.ToString();
-	    using (HttpClient client = new HttpClient())
-	    {
-	       var response = JsonConvert.DeserializeObject<Dictionary<string, decimal>>(await client.GetStringAsync(pred_call));
-	       ViewData["HomePred"] = response[homeId.ToString()];
-       	       ViewData["AwayPred"] = response[awayId.ToString()];	       
-	    }
+            string pred_call = "http://ec2-52-61-99-3.us-gov-west-1.compute.amazonaws.com/" + homeId.ToString() + "/" + awayId.ToString();
+            using (HttpClient client = new HttpClient())
+            {
+               var response = JsonConvert.DeserializeObject<Dictionary<string, decimal>>(await client.GetStringAsync(pred_call));
+               ViewData["HomePred"] = response[homeId.ToString()] * 100;
+               ViewData["AwayPred"] = response[awayId.ToString()] * 100;
+               ViewData["HomeColor"] = response[homeId.ToString()] > response[awayId.ToString()] ? "bg-success" : "bg-danger";
+               ViewData["AwayColor"] = response[awayId.ToString()] > response[homeId.ToString()] ? "bg-success" : "bg-danger";
+            }
             var gameModel = new GameModel();
             gameModel.HomeTeamId = homeId;
             gameModel.AwayTeamId = awayId;
