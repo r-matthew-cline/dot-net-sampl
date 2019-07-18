@@ -1,12 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PickEm.Models;
-using PickEm.Web.Controllers;
 
 namespace PickEm.Web.Controllers
 {
@@ -33,8 +30,10 @@ namespace PickEm.Web.Controllers
                 return NotFound();
             }
 
-            var bracketModel = await _context.BracketModel.Include(b => b.Games)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var bracketModel = await _context.BracketModel
+		    .Include(b => b.Games).ThenInclude(g => g.HomeTeam)
+		    .Include(b => b.Games).ThenInclude(b => b.AwayTeam)
+		    .FirstOrDefaultAsync(m => m.Id == id);
             if (bracketModel == null)
             {
                 return NotFound();
@@ -68,7 +67,7 @@ namespace PickEm.Web.Controllers
         }
 
         // GET: Bracket/Pick?bracketId=1&game=1
-        public async Task<IActionResult> Pick(int bracketId, int bracketPosition)
+        public IActionResult Pick(int bracketId, int bracketPosition)
         {
             var bracketModel = _context.BracketModel.Include(b => b.Games).Where(b => b.Id == bracketId).Single();
             if (bracketModel == null)

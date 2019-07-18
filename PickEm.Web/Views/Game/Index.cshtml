@@ -40,7 +40,14 @@
                 @Html.DisplayFor(modelItem => item.AwayScore)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Prediction)
+                @if(item.Prediction.Value)
+                {
+                    @Html.DisplayFor(modelItem => item.HomeTeam.Name)
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.AwayTeam.Name)
+                }
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
