@@ -78,7 +78,7 @@ namespace PickEm.Web.Controllers
         // GET: Game/PickGame?homeId=1&awayId=2&bracketId=3&bracketPosition
         public async Task<IActionResult>  PickGame(int homeId, int awayId, int bracketId, int bracketPosition)
         {
-            string pred_call = "http://ec2-52-61-99-3.us-gov-west-1.compute.amazonaws.com/" + homeId.ToString() + "/" + awayId.ToString();
+            string pred_call = "http://ec2-52-61-99-3.us-gov-west-1.compute.amazonaws.com/pickem/" + homeId.ToString() + "/" + awayId.ToString();
             using (HttpClient client = new HttpClient())
             {
                var response = JsonConvert.DeserializeObject<Dictionary<string, decimal>>(await client.GetStringAsync(pred_call));
