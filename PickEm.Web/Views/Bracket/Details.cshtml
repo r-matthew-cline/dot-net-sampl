@@ -8,6 +8,7 @@
     var teams = new List<string>();
     foreach (var game in Model.Games)
     {
+    	
         teams.Append(game.HomeTeam.Name);
         teams.Append(game.AwayTeam.Name);
     }
@@ -35,8 +36,57 @@
     </div>
 
 	<script type="text/javascript">
-	    var rounds;
-	    rounds = [
+            function Game(homeTeam, awayTeam)
+	    {
+		this.player1 = homeTeam;
+		this.player2 = awayTeam;
+	    }
+
+	    function Player(name, winner, id)
+	    {
+		this.name = name;
+		this.winner = winner;
+		this.id = id;
+	    }
+
+
+	    var rounds = [[], [], [], [], [], []];
+	    @for (int i = 0; i < Model.Games.Count(); i++)
+	    {
+		if (i < 32)
+		{
+			<text>rounds[0].push(new Game(new Player('@Model.Games[i].HomeTeam.Name', @Model.Games[i].Prediction.Value.ToString().ToLower(), @Model.Games[i].HomeTeamId), new Player('@Model.Games[i].AwayTeam.Name', !(@Model.Games[i].Prediction.ToString().ToLower()), @Model.Games[i].AwayTeamId)));
+			</text>
+		}
+		else if (i > 31 && i < 48)
+		{
+			<text>rounds[1].push(new Game(new Player('@Model.Games[i].HomeTeam.Name', @Model.Games[i].Prediction.Value.ToString().ToLower(), @Model.Games[i].HomeTeamId), new Player('@Model.Games[i].AwayTeam.Name', !(@Model.Games[i].Prediction.ToString().ToLower()), @Model.Games[i].AwayTeamId)));
+			</text>
+		}
+		else if (i > 47 && i < 56)
+		{
+			<text>rounds[2].push(new Game(new Player('@Model.Games[i].HomeTeam.Name', @Model.Games[i].Prediction.Value.ToString().ToLower(), @Model.Games[i].HomeTeamId), new Player('@Model.Games[i].AwayTeam.Name', !(@Model.Games[i].Prediction.ToString().ToLower()), @Model.Games[i].AwayTeamId)));
+			</text>
+		}
+		else if (i > 55 && i < 60)
+		{
+			<text>rounds[3].push(new Game(new Player('@Model.Games[i].HomeTeam.Name', @Model.Games[i].Prediction.Value.ToString().ToLower(), @Model.Games[i].HomeTeamId), new Player('@Model.Games[i].AwayTeam.Name', !(@Model.Games[i].Prediction.ToString().ToLower()), @Model.Games[i].AwayTeamId)));
+			</text>
+		}
+		else if (i > 59 && i < 62)
+		{
+			<text>rounds[4].push(new Game(new Player('@Model.Games[i].HomeTeam.Name', @Model.Games[i].Prediction.Value.ToString().ToLower(), @Model.Games[i].HomeTeamId), new Player('@Model.Games[i].AwayTeam.Name', !(@Model.Games[i].Prediction.ToString().ToLower()), @Model.Games[i].AwayTeamId)));
+			</text>
+		}
+		else
+		{
+			<text>rounds[5].push(new Game(new Player('@Model.Games[i].HomeTeam.Name', @Model.Games[i].Prediction.Value.ToString().ToLower(), @Model.Games[i].HomeTeamId), new Player('@Model.Games[i].AwayTeam.Name', !(@Model.Games[i].Prediction.ToString().ToLower()), @Model.Games[i].AwayTeamId)));
+			</text>
+		}
+	    }
+
+	    var rounds_back;
+	    rounds_back = [
 	      [
 		{
 		  player1: {name:"Player1", winner:true, ID:1},
@@ -59,7 +109,7 @@
 		}
 	      ]
 	    ]
-	    var titles = ['Semifinals', 'Finals', 'Champion'];
+	    var titles = ['Round 1', 'Round 2', 'Sweet 16', 'Elite 8', 'Final 4', 'Championship'];
 
 	    $(".brackets").brackets({
 	      titles: titles,
